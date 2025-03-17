@@ -76,7 +76,7 @@ SDL_Rect	set_rect(int x, int y, int w, int h);
 void		set_pixel(SDL_Renderer *renderer, int x, int y);
 void		draw_str(const char *content, t_game *game, int x, int y);
 void		write_str(const char *content, t_game *game, int x, int y);
-char		*draw_score(t_game *game);
+void		draw_score(t_game *game);
 
 t_enemy		enemy_init(int spawn_distance);
 void		init_game(t_game *game);

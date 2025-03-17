@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-char *draw_score(t_game *game)
+void	draw_score(t_game *game)
 {
 	char *tmp;
 	char *score;
@@ -24,5 +24,4 @@ char *draw_score(t_game *game)
 	write_str(score, game, 410, 0);
 	free(tmp);
 	free(score);
-	return (score);
 }
