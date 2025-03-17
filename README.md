@@ -1,5 +1,5 @@
 <p align="center">
-  <img src=".github/highway95.png" alt="Highway95" width="100%">
+  <img src=".github/highway95.png" alt="Highway95" width="540em">
 </p>
 
 # 🚗 Highway95  
