@@ -6,7 +6,7 @@
 /*   By: rgodet <rgodet@student.42angouleme.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 11:44:36 by rgodet            #+#    #+#             */
-/*   Updated: 2025/03/17 17:43:23 by rgodet           ###   ########.fr       */
+/*   Updated: 2025/03/17 19:29:23 by rgodet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@ void	write_str(const char *content, t_game *game, int x, int y)
 
 void	render(t_game *game)
 {
+	SDL_Rect viewport = { 0, 0, 420, 240 };
+
 	SDL_SetRenderDrawColor(game->renderer, HIGH_R, HIGH_G,
 		HIGH_B, 0);
 	if (game->view == 0 || game->view == 2)
@@ -88,5 +90,11 @@ void	render(t_game *game)
 		view_game(game);
 	else if (game->view == 2)
 		view_game_over(game);
+	if (game->last_collision_frame + 20 > game->frame && game->view == 1)
+	{
+		viewport.x = (rand() % 10) - 5;
+		viewport.y = (rand() % 10) - 5;
+	}
+	SDL_RenderSetViewport(game->renderer, &viewport);
 	SDL_RenderPresent(game->renderer);
 }
