@@ -6,7 +6,7 @@
 /*   By: rgodet <rgodet@student.42angouleme.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 11:34:06 by rgodet            #+#    #+#             */
-/*   Updated: 2025/03/16 20:29:04 by rgodet           ###   ########.fr       */
+/*   Updated: 2025/03/17 09:34:24 by rgodet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	init_game(t_game *game)
 	log_success("Initialization done");
 }
 
-void restart_game(t_game *game)
+void	restart_game(t_game *game)
 {
 	game->life = 4;
 	game->road = 1;
@@ -55,4 +55,5 @@ void restart_game(t_game *game)
 	game->enemies[1] = enemy_init(game->spawn_distance * 2);
 	game->enemies[2] = enemy_init(game->spawn_distance * 3);
 	game->frame = 0;
+	game->last_collision_frame = -1000;
 }

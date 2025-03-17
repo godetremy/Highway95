@@ -6,7 +6,7 @@
 /*   By: rgodet <rgodet@student.42angouleme.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 11:44:36 by rgodet            #+#    #+#             */
-/*   Updated: 2025/03/16 20:12:41 by rgodet           ###   ########.fr       */
+/*   Updated: 2025/03/17 09:31:05 by rgodet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	set_pixel(SDL_Renderer *renderer, int x, int y)
 void	draw_str(const char *content, t_game *game, int x, int y)
 {
 	int		i;
-	int 	base_x;
+	int		base_x;
 
 	i = 0;
 	base_x = x;
@@ -62,7 +62,8 @@ void	write_str(const char *content, t_game *game, int x, int y)
 	SDL_Texture	*texture;
 	SDL_Rect	rect;
 
-	surface = TTF_RenderText_Solid(game->font, content, (SDL_Color){COLOR_HIGH_R, COLOR_HIGH_G, COLOR_HIGH_B, 0});
+	surface = TTF_RenderText_Solid(game->font, content, (SDL_Color)
+		{HIGH_R, HIGH_G, HIGH_B, 0});
 	texture = SDL_CreateTextureFromSurface(game->renderer, surface);
 	rect.x = x - surface->w;
 	rect.y = y;
@@ -75,11 +76,12 @@ void	write_str(const char *content, t_game *game, int x, int y)
 
 void	render(t_game *game)
 {
-	SDL_SetRenderDrawColor(game->renderer, COLOR_HIGH_R, COLOR_HIGH_G, COLOR_HIGH_B, 0);
+	SDL_SetRenderDrawColor(game->renderer, HIGH_R, HIGH_G,
+		HIGH_B, 0);
 	if (game->view == 0 || game->view == 2)
-		SDL_SetRenderDrawColor(game->renderer, COLOR_LOW_R, COLOR_LOW_G, COLOR_LOW_B, 0);
+		SDL_SetRenderDrawColor(game->renderer, LOW_R, LOW_G,
+			LOW_B, 0);
 	SDL_RenderClear(game->renderer);
-
 	if (game->view == 0)
 		view_menu(game);
 	else if (game->view == 1)
@@ -88,5 +90,3 @@ void	render(t_game *game)
 		view_game_over(game);
 	SDL_RenderPresent(game->renderer);
 }
-
-

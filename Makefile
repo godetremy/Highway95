@@ -4,7 +4,7 @@ CC=gcc
 RM=rm -f
 
 SRC = src/ft_itoa.c src/ft_strjoin.c src/main.c src/logs.c src/initialization.c src/render.c src/road.c src/event.c src/view.c src/enemy.c \
-      src/collide.c src/score.c
+      src/collide.c src/score.c src/player.c
 OBJ = $(SRC:.c=.o)
 
 CFLAGS=-Wall -Wextra -Werror -I/opt/homebrew/include

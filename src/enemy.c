@@ -6,7 +6,7 @@
 /*   By: rgodet <rgodet@student.42angouleme.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 17:28:57 by rgodet            #+#    #+#             */
-/*   Updated: 2025/03/16 22:46:32 by rgodet           ###   ########.fr       */
+/*   Updated: 2025/03/17 10:28:55 by rgodet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ t_enemy	enemy_init(int spawn_distance)
 	return (enemy);
 }
 
-static void relocate_enemy(t_game *game, t_enemy *enemy)
+static void	relocate_enemy(t_game *game, t_enemy *enemy)
 {
-	int spawn_distance;
-	int i;
+	int	spawn_distance;
+	int	i;
 
 	spawn_distance = 0;
 	i = 0;
@@ -44,13 +44,13 @@ static void relocate_enemy(t_game *game, t_enemy *enemy)
 void	draw_enemy(t_game *game, t_enemy *enemy)
 {
 	if (enemy->car_disposition == 0 || enemy->car_disposition == 3
-			|| enemy->car_disposition == 5)
+		|| enemy->car_disposition == 5)
 		draw_str(car1, game, enemy->x, 7);
 	if (enemy->car_disposition == 1 || enemy->car_disposition == 3
-			|| enemy->car_disposition == 4)
+		|| enemy->car_disposition == 4)
 		draw_str(car1, game, enemy->x, 7 + 14);
 	if (enemy->car_disposition == 2 || enemy->car_disposition == 4
-			|| enemy->car_disposition == 5)
+		|| enemy->car_disposition == 5)
 		draw_str(car1, game, enemy->x, 7 + 14 * 2);
 	enemy->x -= 1;
 	if (enemy->x < -20)
