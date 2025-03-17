@@ -7,8 +7,8 @@ SRC = src/ft_itoa.c src/ft_strjoin.c src/main.c src/logs.c src/initialization.c 
       src/collide.c src/score.c src/player.c
 OBJ = $(SRC:.c=.o)
 
-CFLAGS=-Wall -Wextra -Werror -I/opt/homebrew/include
-LDLIBS=-L/opt/homebrew/lib -lSDL2 -lSDL2_mixer -lSDL2_ttf
+CFLAGS=-Wall -Wextra -Werror -I/opt/homebrew/include -I$HOME/.local/include
+LDLIBS=-L/opt/homebrew/lib -L$HOME/.local/lib -lSDL2_mixer -lSDL2 -lSDL2_ttf
 
 all: $(NAME)
 

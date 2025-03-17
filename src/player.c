@@ -14,7 +14,7 @@
 
 void  draw_player(t_game *game)
 {
-  	if (game->frame < game->last_collision_frame + 100 && game->frame % 4 > 2)
+  	if (game->frame < game->last_collision_frame + 100 && game->frame % 8 > 4)
 		return ;
 	if (game->frame < 50)
 		draw_str(player, game, -20 + game->frame / 2, 6 + (14 * game->road));
