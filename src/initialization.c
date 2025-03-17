@@ -16,14 +16,12 @@
 void	init_audio(t_game *game)
 {
 	if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0)
-		exit(log_error("Audio initialization failed"));
+		exit(log_error(Mix_GetError()));
 	game->audio.bip = Mix_LoadWAV("ressources/bip.wav");
 	game->audio.start = Mix_LoadWAV("ressources/start.wav");
 	game->audio.crash = Mix_LoadWAV("ressources/crash.wav");
 	game->audio.game_over = Mix_LoadWAV("ressources/game_over.wav");
 	game->audio.score = Mix_LoadWAV("ressources/score.wav");
-	if (!game->audio.bip)
-		exit(log_error("Audio file loading failed"));
 }
 
 void	init_game(t_game *game)
