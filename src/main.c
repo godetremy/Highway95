@@ -35,6 +35,5 @@ int	main(void)
 		game.frame++;
 		SDL_Delay(16);
 	}
-	SDL_DestroyWindow(game.window);
-	SDL_Quit();
+	uninit_game(&game);
 }

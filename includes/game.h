@@ -6,7 +6,7 @@
 /*   By: rgodet <rgodet@student.42angouleme.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 11:31:47 by rgodet            #+#    #+#             */
-/*   Updated: 2025/03/17 19:43:29 by rgodet           ###   ########.fr       */
+/*   Updated: 2025/03/17 22:06:30 by rgodet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ void		draw_player(t_game *game);
 
 t_enemy		enemy_init(int spawn_distance);
 void		init_game(t_game *game);
+void		uninit_game(t_game *game);
 void		restart_game(t_game *game);
 void		keydown_event(t_game *game);
 void		render(t_game *game);

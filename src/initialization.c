@@ -57,3 +57,18 @@ void	restart_game(t_game *game)
 	game->frame = 0;
 	game->last_collision_frame = -1000;
 }
+
+void	uninit_game(t_game *game)
+{
+    SDL_DestroyRenderer(game->renderer);
+    SDL_DestroyWindow(game->window);
+    TTF_CloseFont(game->font);
+    Mix_FreeChunk(game->audio.bip);
+    Mix_FreeChunk(game->audio.start);
+    Mix_FreeChunk(game->audio.crash);
+    Mix_FreeChunk(game->audio.game_over);
+    Mix_FreeChunk(game->audio.score);
+    Mix_Quit();
+    TTF_Quit();
+    SDL_Quit();
+}
