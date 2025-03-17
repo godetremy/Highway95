@@ -6,7 +6,7 @@
 /*   By: rgodet <rgodet@student.42angouleme.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 17:07:38 by rgodet            #+#    #+#             */
-/*   Updated: 2025/03/17 09:34:11 by rgodet           ###   ########.fr       */
+/*   Updated: 2025/03/17 19:37:40 by rgodet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,12 @@ static void	menu_keydown_event(t_game *game)
 	{
 		if (game->menu_select == 0)
 		{
-			restart_game(game);
+			if (game->view != 3)
+			{
+				restart_game(game);
+				Mix_PlayChannel(1, game->audio.start, 0);
+			}
 			game->view = 1;
-			Mix_PlayChannel(1, game->audio.start, 0);
 		}
 		else if (game->menu_select == 1)
 			game->running = 0;
@@ -40,7 +43,7 @@ static void	menu_keydown_event(t_game *game)
 
 void	keydown_event(t_game *game)
 {
-	if (game->view == 0 || game->view == 2)
+	if (game->view == 0 || game->view == 2 || game->view == 3)
 		menu_keydown_event(game);
 	else if (game->view == 1)
 	{
@@ -53,6 +56,12 @@ void	keydown_event(t_game *game)
 		{
 			if (game->road < 2)
 				game->road++;
+		}
+		else if (game->event.key.keysym.sym == SDLK_ESCAPE)
+		{
+			game->view = 3;
+			game->menu_select = 0;
+			Mix_PlayChannel(2, game->audio.bip, 0);
 		}
 	}
 }

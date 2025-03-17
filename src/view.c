@@ -6,7 +6,7 @@
 /*   By: rgodet <rgodet@student.42angouleme.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 17:14:35 by rgodet            #+#    #+#             */
-/*   Updated: 2025/03/17 09:36:41 by rgodet           ###   ########.fr       */
+/*   Updated: 2025/03/17 19:48:32 by rgodet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,15 @@ void	view_menu(t_game *game)
 	draw_str(play, game, 30, 25);
 	draw_str(exit_text, game, 32, 35);
 	draw_str(arrow, game, 25, 25 + (game->menu_select * 10));
+}
+
+void	view_pause(t_game *game)
+{
+	SDL_SetRenderDrawColor(game->renderer, HIGH_R, HIGH_G, HIGH_B, 0);
+	draw_str(pause, game, 22, 10);
+	draw_str(resume, game, 27, 25);
+	draw_str(exit_text, game, 32, 35);
+	draw_str(arrow, game, 22, 25 + (game->menu_select * 10));
 }
 
 void	view_game(t_game *game)
@@ -65,11 +74,3 @@ void	view_game_over(t_game *game)
 	write_str("Best", game, 410, 100);
 	get_bestscore(game);
 }
-/*
-           @
-       @@@@ @@@@@@
-    @@@@@@ @@@@@@ @
-  @@ @@@@@  @ @   @
- @@  @@@@@@  @ @   @
-
- */

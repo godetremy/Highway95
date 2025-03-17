@@ -6,7 +6,7 @@
 /*   By: rgodet <rgodet@student.42angouleme.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 11:44:36 by rgodet            #+#    #+#             */
-/*   Updated: 2025/03/17 19:29:23 by rgodet           ###   ########.fr       */
+/*   Updated: 2025/03/17 19:38:31 by rgodet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,11 +78,11 @@ void	render(t_game *game)
 {
 	SDL_Rect viewport = { 0, 0, 420, 240 };
 
-	SDL_SetRenderDrawColor(game->renderer, HIGH_R, HIGH_G,
-		HIGH_B, 0);
-	if (game->view == 0 || game->view == 2)
-		SDL_SetRenderDrawColor(game->renderer, LOW_R, LOW_G,
+	SDL_SetRenderDrawColor(game->renderer, LOW_R, LOW_G,
 			LOW_B, 0);
+	if (game->view == 1)
+		SDL_SetRenderDrawColor(game->renderer, HIGH_R, HIGH_G,
+		HIGH_B, 0);
 	SDL_RenderClear(game->renderer);
 	if (game->view == 0)
 		view_menu(game);
@@ -90,6 +90,8 @@ void	render(t_game *game)
 		view_game(game);
 	else if (game->view == 2)
 		view_game_over(game);
+	else if (game->view == 3)
+		view_pause(game);
 	if (game->last_collision_frame + 20 > game->frame && game->view == 1)
 	{
 		viewport.x = (rand() % 10) - 5;
